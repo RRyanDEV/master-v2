@@ -1,77 +1,163 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+body.open .background {
+  filter: blur(20px);
+}
+body.open .navbar-burger {
+  background-image: url("/assets/close.svg");
+}
+body.open .menu {
+  opacity: 1;
+  visibility: visible;
+}
+body.open .menu > a {
+  animation: appear 0.3s both;
 }
 body{
-    background: #3AADA9;
-    display: flex;
+  background: #3AADA9;
+  display: flex;
 }
-img{
-    box-sizing: border-box;
-    position: relative;
-    width: 7rem;
-}
+// (#) ID's
 
 
-// IDs
 
+// (.) Containers
+// NavBar - Start
+.navbar,
+.navbar-burger,
+.menu,
+.background {
+  position: fixed;
+}
+.navbar {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding-left: 20px;
+  padding-right: 72px;
+  background: #17252a;
+}
 
-// Containers
-.topnav {
-    background-color: #17252A;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
-    a {
-    float: left;
-    display: block;
-    color: #3AAFA9;
-    text-align: center;
-    padding: 14px 14px;
-    text-decoration: none;
-    font-size: 17px;
+.navbar > button {
+  font-size: 28px;
 }
-a:hover {
-    background-color: #def2f1d8;
-    color: black;
+
+.navbar-logo {
+  height: 50px;
 }
+.navbar-burger {
+  z-index: 3;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  background-image: url("/assets/menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.topnav .icon {
-    display: none;
+.menu {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
 }
-.nav-itens{
-    padding-right:0.5rem;
-   position: relative;
-   display: flex;
-   left: auto;
+
+.menu > a {
+  color: #FFFFFF;
+  font-size: 32px;
+  font-family: 'Mulish', sans-serif;
+  text-decoration: none;
 }
-.site-logo-img{
-    display: flex;
-    width: 100%;
-    position: relative;  
+// NavBar - End
+/* Profile(Img-Text-Icons)-START */
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 56rem;
 }
-// Media Quarries
-@media only screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {display: none;}
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
+.hero-container {
+  position: relative;
+  display: flex;
+  top: -25vh;
+  max-width: 100rem;
+  justify-content: center;
+  align-items: center;
+}
+.hero-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 20rem;
+}
+.hero-profile-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: brightness(80%);
+  background-image: url(/assets/profile_img.jpg);
+  background-size: cover;
+}
+.hero-profile-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1rem;
+  text-align: center;
+}
+.pro-headline {
+  font-size: 3rem;
+  padding-bottom: 0.3rem;
+  color: #FFFFFF;
+}
+.pro-text {
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  color: #FFFFFF;
+}
+/* Profile(Img-Text-Icons)-END */
+// Keyframes/Media Querries
+@keyframes appear {
+  0% {
+    opacity: 0;
+    translate: 0 50px;
   }
-  @media screen and (max-width: 600px) {
-    .topnav.responsive {position: relative;}
-    .topnav.responsive a.icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
+  100% {
+    opacity: 1;
   }
+}
